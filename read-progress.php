@@ -40,6 +40,22 @@ class ReadProgress {
         add_action('wp_enqueue_scripts', [$this, 'load_assets']);
         add_action('admin_menu', [$this, 'add_admin_page']);
         add_action('plugins_loaded', [$this, 'load_textdomain']);
+        // Hook para adicionar o link de configurações
+        add_filter('plugin_action_links_read-progress/read-progress.php', [$this, 'add_config_link']);
+    }
+
+
+    /**
+     * Adiciona o link de configurações na página de plugins.
+     *
+     * @param array $links Links padrão do plugin.
+     * @return array Links atualizados com o link de configurações.
+     */
+    public function add_config_link($links) {
+        $url = admin_url('options-general.php?page=rp-options');
+        $settings_link = '<a href="' . $url . '">' . __('Settings', 'read_progress') . '</a>';
+        array_unshift($links, $settings_link);
+        return $links;
     }
 
     /**
