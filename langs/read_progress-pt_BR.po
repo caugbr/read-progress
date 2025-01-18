@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ReadProgress\n"
+"POT-Creation-Date: 2025-01-17 20:28-0300\n"
+"PO-Revision-Date: 2025-01-17 20:28-0300\n"
+"Last-Translator: \n"
+"Language-Team: Cau Guanabara\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+
+#: read-progress.php:17
+msgid ""
+"ReadProgress offers two reading tools, especially useful for long texts. The "
+"first is a progress bar at the top of the window showing the scrolling of "
+"the text being read. In addition, it optionally shows the estimated reading "
+"time in minutes."
+msgstr ""
+"O ReadProgress oferece duas ferramentas de leitura especialmente úteis para "
+"textos longos. A primeira é uma barra de progresso no topo da janela "
+"mostrando a rolagem do texto que está sendo lido. Além disso, ele mostra, "
+"opcionalmente, o tempo estimado de leitura em minutos."
+
+#: read-progress.php:78 read-progress.php:79
+msgid "Read Progress"
+msgstr "Read Progress"
+
+#: read-progress.php:102
+msgid "Configuration successfully saved!"
+msgstr "Configurações salvas com sucesso!"
+
+#: read-progress.php:107
+msgid "Read Progress options"
+msgstr "Opções do Read Progress"
+
+#: read-progress.php:111
+msgid ""
+"Here you can select the post types that will use the system and format the "
+"progress bar."
+msgstr ""
+"Aqui você pode selecionar os tipos de post que vão usar o sistema e formatar "
+"a barra de progresso."
+
+#: read-progress.php:120
+msgid "Select the post types that you want to use the system"
+msgstr "Selecione os tipos de post que vão usar o sistema"
+
+#: read-progress.php:121
+msgid "Post types"
+msgstr "Tipos de post"
+
+#: read-progress.php:127
+msgid "CSS Selector to get the article text element"
+msgstr "Seletor CSS para pegar o elemento com o texto do artigo"
+
+#: read-progress.php:128
+msgid "CSS Selector"
+msgstr "Seletor CSS"
+
+#: read-progress.php:134
+msgid "Height (CSS value) for the progressbar element"
+msgstr "Altura (valor CSS) para a barra de progresso"
+
+#: read-progress.php:135
+msgid "Progressbar height"
+msgstr "Altura da barra de progresso"
+
+#: read-progress.php:141
+msgid "Color for the progressbar element"
+msgstr "Cor para a barra de progresso"
+
+#: read-progress.php:142
+msgid "Progressbar color"
+msgstr "Cor da barra de progresso"
+
+#: read-progress.php:148
+msgid "Yes"
+msgstr "Sim"
+
+#: read-progress.php:149
+msgid "No"
+msgstr "Não"
+
+#: read-progress.php:150
+msgid "Use the reading time estimative above the article"
+msgstr "Usar a estimativa de tempo de leitura acima do artigo"
+
+#: read-progress.php:151
+msgid "Estimated reading time"
+msgstr "Tempo estimado de leitura"
+
+#: read-progress.php:158
+msgid "Words per minute rate"
+msgstr "Taxa de palavras por minuto"
+
+#: read-progress.php:159
+msgid "Words per minute"
+msgstr "Palavras por minuto"
+
+#: read-progress.php:162
+msgid "Save"
+msgstr "Salvar"
+
+#: read-progress.php:203
+msgid "Estimated reading time: "
+msgstr "Tempo estimado de leitura: "
+
+#: read-progress.php:204
+msgid "minutes"
+msgstr "minutos"
+
+#: read-progress.php:205
+msgid "minute"
+msgstr "minuto"
+
+#~ msgid ""
+#~ "ReadProgress offers two reading tools, especially useful for long texts"
+#~ msgstr ""
+#~ "O ReadProgress oferece duas ferramentas de leitura especialmente úteis "
+#~ "para textos longos. A primeira é uma barra de progresso no topo da janela "
+#~ "mostrando a rolagem do texto que está sendo lido. Além disso, ele mostra, "
+#~ "opcionalmente, o tempo estimado de leitura em minutos."

@@ -1,0 +1,2 @@
+
+window.RP = new ReadProgress();
