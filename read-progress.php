@@ -15,6 +15,9 @@ if (!defined('ABSPATH')) {
 }
 
 define('RP_URL', plugin_dir_url(__FILE__));
+define('RP_PATH', plugin_dir_path(__FILE__));
+
+require_once RP_PATH . "/rzp/require-zip-plugin.php";
 
 class ReadProgress {
     // Config items
@@ -27,10 +30,10 @@ class ReadProgress {
     private $config_items = [ 'selector', 'height', 'color','use_e_t', 'wpm' ];
 
     public function __construct() {
-        global $require_zip_plugin;
+        $require_zip_plugin = new RequireZipPlugin('plugin');
         if ($require_zip_plugin) {
             $require_zip_plugin->require(
-                'ReadProgress', 
+                'Read Progress', 
                 'Form inputs', 
                 'https://github.com/caugbr/form-inputs/archive/refs/heads/main.zip', 
                 'form-inputs/form-inputs.php'
@@ -40,7 +43,6 @@ class ReadProgress {
         add_action('wp_enqueue_scripts', [$this, 'load_assets']);
         add_action('admin_menu', [$this, 'add_admin_page']);
         add_action('plugins_loaded', [$this, 'load_textdomain']);
-        // Hook para adicionar o link de configurações
         add_filter('plugin_action_links_read-progress/read-progress.php', [$this, 'add_config_link']);
     }
 
@@ -80,12 +82,9 @@ class ReadProgress {
                 RP_URL . 'assets/js/read-progress.js', 
                 [], '1.0.0', true
             );
-            wp_enqueue_script(
-                'read-progress-init-js', 
-                RP_URL . 'assets/js/init.js', 
-                [], '1.0.0', true
-            );
+            wp_add_inline_script('read-progress-js', 'window.RP = new ReadProgress();');
             wp_localize_script('read-progress-js', 'RPConfig', $this->config());
+
             wp_enqueue_style(
                 'read-progress-css', RP_URL . 'assets/css/read-progress.css', 
                 [], '1.0.0'
@@ -116,6 +115,9 @@ class ReadProgress {
      */
     public function admin_page() {
         global $f_inputs;
+        if (!$f_inputs) {
+            return;
+        }
         $msg = "";
         if (isset($_POST['rp_save'])) {
             check_admin_referer('rp_nonce_action', 'rp_nonce_field');
@@ -131,7 +133,7 @@ class ReadProgress {
         $ptypes = (array) $this->get_post_types();
         ?>
         <h1 class="wp-heading-inline"><?php _e('Read Progress options', 'read_progress'); ?></h1>
-        <?php if (!empty($msg)) { print "<div class='updated' style='margin-left: 0'><p>{$msg}</p></div>"; } ?>
+        <?php if (!empty($msg)) { print "<div class='notice updated'><p>{$msg}</p></div>"; } ?>
         <form method="post" action="" class="reaction-form">
             <?php wp_nonce_field('rp_nonce_action', 'rp_nonce_field'); ?>
             <p><?php _e('Here you can select the post types that will use the system and format the progress bar.', 'read_progress'); ?></p>
@@ -188,8 +190,6 @@ class ReadProgress {
                 <?php submit_button(__('Save', 'read_progress'), 'primary', 'rp_save'); ?>
             </p>
         </form>
-        <style>
-        </style>
         <?php
     }
 
@@ -219,7 +219,7 @@ class ReadProgress {
     }
 
     /**
-     * Return config values as an array, including some translations
+     * Return config values as an array, including some translation strings
      *
      * @return void
      */
